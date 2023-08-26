@@ -12,5 +12,10 @@ Make sure you contact us at support@betbuddy.co.in to get the necessary develope
 1. Clone the repo
 2. Install all the packages
 3. Build the app for your preferd platform
-4. Run the App 🚀
+4. Run the App 🚀 
+
+
+To run on physical devie
+ - adb reverse tcp:8081 tcp:8081
+ - npm start
 
