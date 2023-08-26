@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, { Children } from 'react';
+import React, {Children} from 'react';
 import {colors} from '../../constants/colors';
+import { font } from '../../constants/fonts';
 
 interface ButtonProps {
   onPress?: (e?: any) => void;
@@ -20,12 +21,12 @@ export default function Button({
   enabledColor = colors.ACCENT,
   disabledColor = colors.DISABLED,
   disabled = false,
-  children = "Button",
+  children = 'Button',
   ...rest
 }: ButtonProps) {
   return (
     <TouchableOpacity
-    activeOpacity={0.7}
+      activeOpacity={0.7}
       style={[
         styles.container,
         {backgroundColor: !disabled ? enabledColor : disabledColor},
@@ -48,9 +49,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: font.RobotoBold,
     color: colors.BLACK,
-    // backgroundColor: '#faf',
     height: '100%',
     width: '100%',
     verticalAlign: 'middle',
