@@ -17,9 +17,17 @@ import google from '../../assets/images/google.png';
 import fullLogo from '../../assets/images/fullLogo.png';
 import loginBanner from '../../assets/images/login.png';
 import faq from '../../assets/images/faq.png';
-import { font } from '../../constants/fonts';
+import {font} from '../../constants/fonts';
+
+import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    //@ts-ignore
+    navigation.navigate('Home')
+  }
   return (
     <Screen>
       <View style={{flex: 1}}>
@@ -30,24 +38,35 @@ const Login = () => {
           />
         </TouchableOpacity>
         <Image source={fullLogo} style={styles.logo} />
-        <Text style={[styles.loginContent,{color: colors.DISABLED, fontSize: 13, transform: [{translateY: -10}]}]}>Betting made social - Betting made simple</Text>
+        <Text
+          style={[
+            styles.loginContent,
+            {
+              color: colors.DISABLED,
+              fontSize: 13,
+              transform: [{translateY: -10}],
+            },
+          ]}>
+          Betting made social - Betting made simple
+        </Text>
         <Image source={loginBanner} style={styles.loginImage} />
         <Text style={styles.loginContent}>
           Discover a new level of friendship and excitement with our social
           betting app! 🤝 Seamlessly create and share bets among friends,
-          turning everyday challenges into thrilling opportunities.{'\n'}{'\n'} Whether
-          you're wagering on sports outcomes 🏀, personal achievements 🏆, or
-          fun dares 🎉, our platform lets you customize bets and invite friends
-          to join in the excitement.
+          turning everyday challenges into thrilling opportunities.{'\n'}
+          {'\n'} Whether you're wagering on sports outcomes 🏀, personal
+          achievements 🏆, or fun dares 🎉, our platform lets you customize bets
+          and invite friends to join in the excitement.
         </Text>
       </View>
-      <Button style={{backgroundColor: colors.BRIGHT}}>
+      <Button style={{backgroundColor: colors.BRIGHT}} onPress={handleLogin}>
         <Image
           source={google}
           style={{height: 22, width: 22, resizeMode: 'contain'}}
-        />{' '}{' '}
+        />{' '}
         Sign in with Google
       </Button>
+      <Text style={styles.footerText}>Made with ❤️ in India</Text>
     </Screen>
   );
 };
@@ -67,7 +86,7 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: '35%',
+    marginTop: '30%',
   },
   loginContent: {
     fontSize: 14,
@@ -79,4 +98,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
   },
+  footerText:{
+    fontSize: 12,
+     fontFamily: font.RobotoRegular,
+     alignSelf: 'center',
+     color: colors.DIM,
+     marginTop: 12
+  }
 });
